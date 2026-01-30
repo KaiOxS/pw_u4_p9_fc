@@ -1,26 +1,15 @@
 <template>
-  <div>
-    <h2>Borrar por ID</h2>
-    <button @click="borrar">Borrar</button>
-
-    <pre>{{ estudiante }}</pre>
-  </div>
+  <Borrar />
 </template>
 
 <script>
-import { borrarFachada } from "@/clients/MatriculaClient";
+import Borrar from '@/components/Borrar.vue';
 
 export default {
-  data() {
-    return {
-      estudiante: null
-    }
-  },
-  methods: {
-    async borrar() {
-      const id = this.$route.params.id;
-      this.estudiante = await borrarFachada(id);
-    }
+  components: {
+    Borrar
   }
 }
 </script>
+
+<style scoped></style>

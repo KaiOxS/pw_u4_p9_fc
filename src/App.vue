@@ -1,11 +1,11 @@
 <template>
   <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/">Home</router-link> |
-    <router-link to="/">Home</router-link> |
-    <router-link to="/">Home</router-link> |
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+    <router-link to="/consultarTodos">Consultar Todos</router-link> |
+    <router-link to="/consultarId">Consultar por ID</router-link> |
+    <router-link to="/actualizar">Actualizar</router-link> |
+    <router-link to="/actulizarParcial">Actualizar Parcialmente</router-link> |
+    <router-link to="/guardar">Guardar</router-link> |
+    <router-link to="/borrar">Borrar</router-link>
   </nav>
   <router-view />
 </template>

@@ -13,32 +13,32 @@ const routes = [
     name: 'home',
     component: HomeView
   },
-   {
+  {
     path: '/actulizarParcial',
     name: 'actulizarParcial',
     component: ActualizarParcialView
   },
-   {
-    path: '/Actualizar',
-    name: 'Actualizar',
+  {
+    path: '/actualizar',
+    name: 'actualizar',
     component: ActualizarView
   },
-   {
+  {
     path: '/borrar',
     name: 'borrar',
     component: BorrarView
   },
-   {
+  {
     path: '/guardar',
     name: 'guardar',
     component: GuardarView
   },
-   {
+  {
     path: '/consultarId',
     name: 'consultarId',
     component: ConsultarPorIdView
   },
-   {
+  {
     path: '/consultarTodos',
     name: 'consultarTodos',
     component: ConsultarTodosView

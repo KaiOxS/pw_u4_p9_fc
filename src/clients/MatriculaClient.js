@@ -21,13 +21,10 @@ const guardar = async (body) => {
 
 const actualizar = async (id, body) => {
 	axios.put(`http://localhost:8081/matricula/api/v1.0/estudiantes/${id}`, body).then(r => r.data);
-	console.log(data);
-	return data;
 }
+
 const actualizarParcial = async (id, body) => {
 	axios.patch(`http://localhost:8081/matricula/api/v1.0/estudiantes/${id}`, body).then(r => r.data);
-	console.log(data);
-	return data;
 }
 
 const borrar = async (id) => {
@@ -49,7 +46,6 @@ export const guardarFachada = async (body) => {
 }
 
 export const actualizarFachada = async (id, body) => {
-
 	return await actualizar(id, body);
 }
 export const actualizarParcialFachada = async (id, body) => {

@@ -1,25 +1,15 @@
 <template>
-  <div>
-    <h2>Consultar todos los estudiantes</h2>
-    <button @click="consultar">Consultar</button>
-
-    <pre>{{ estudiantes }}</pre>
-  </div>
+  <ConsultarTodos />
 </template>
 
 <script>
-import { consultarTodosFachada } from "@/clients/MatriculaClient";
+import ConsultarTodos from '@/components/ConsultarTodos.vue';
 
 export default {
-  data() {
-    return {
-      estudiantes: []
-    }
-  },
-  methods: {
-    async consultar() {
-      this.estudiantes = await consultarTodosFachada();
-    }
+  components: {
+    ConsultarTodos
   }
 }
 </script>
+
+<style scoped></style>
