@@ -1,5 +1,5 @@
 import axios from "axios";
-import {obtenerTokenFachada} from "./AuthorizationClient";
+import { obtenerTokenFachada } from "./AuthorizationClient";
 
 // const TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJtYXRyaWN1bGEtYXV0aCIsInN1YiI6ImVzdHVkaWFudGUiLCJncm91cHMiOlsiYWRtaW4iXSwiaWF0IjoxNzcwMjQ5MDY0LCJleHAiOjE3NzAyNTI2NjQsImp0aSI6Ijk0NTNiOGU0LTRhMDAtNDAwOC04MDNlLWU5MjcwN2JmNDc4NCJ9.FJXMvSVlue4V8b6d91YuMq0xZc7tbAaED4Ojf1dugrFiR6Y-_mQ2kBzaTwUR-bv-QZEZHo2dqNXxVEvRJbGy5Y22REQi1cAQDNNPPTTJ5uzmWVj57rOj2gEjDDrvhvWbHEOueRBSbSX79g4QOqQZm5dozC8pqQwY6xEyD4oSvUb_Pdry4R5TKkKaNTsOYc8QdS2yqaZV_h9435zG0dfZCygGyUltnkF4vHoWdikC4LkEh5EWYU_zVxf01ckB9Jd2a6l_bm2CjJYV0QlCEVPzkKyHRWUvhmAWgjG8USkGfYEawIXW93g9qIQIsVkNGGFfIR7cQm-aKHMaeS8LwTaQ9A"
 const URL = "http://localhost:8081/matricula/api/v1.0/estudiantes"
@@ -16,6 +16,7 @@ const consultarTodos = async () => {
 
 const consultarPorId = async (id) => {
 	const TOKEN = await obtenerTokenFachada();
+
 	const data = axios.get(`${URL}/${id}`, {
 		headers: {
 			Authorization: `Bearer ${TOKEN}`

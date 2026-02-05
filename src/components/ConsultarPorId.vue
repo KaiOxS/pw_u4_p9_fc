@@ -12,6 +12,9 @@
             <p>Género: {{ estudiante.genero }}</p>
             <p>Provincia: {{ estudiante.provincia }}</p>
         </div>
+        <div class="mensaje" v-if="mensaje">
+            <p>{{ mensaje }}</p>
+        </div>
     </div>
 
 </template>
@@ -23,12 +26,18 @@ export default {
     data() {
         return {
             id: null,
-            estudiante: null
+            estudiante: null,
+            mensaje: null,
         }
     },
     methods: {
         async consultarPorId(id) {
-            this.estudiante = await consultarPorIdFachada(id);
+            try {
+                this.estudiante = await consultarPorIdFachada(id);
+            } catch (error) {
+                this.mensaje = `Error no se pudo obtener el estudiante con el id ${id}`
+            }
+
         }
     }
 }
@@ -58,7 +67,8 @@ button {
     border-radius: 20px;
 }
 
-.estudiantes {
+.estudiantes,
+.mensaje {
     margin-top: 20px;
     display: block;
     text-align: left;
