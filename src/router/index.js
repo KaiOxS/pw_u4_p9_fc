@@ -6,6 +6,7 @@ import BorrarView from '@/views/BorrarView.vue'
 import GuardarView from '@/views/GuardarView.vue'
 import ConsultarPorIdView from '@/views/ConsultarPorIdView.vue'
 import ConsultarTodosView from '@/views/ConsultarTodosView.vue'
+import LoginView from '@/views/LoginView.vue'
 
 const routes = [
 	{
@@ -16,6 +17,11 @@ const routes = [
 			requiereAutorizacion: true,
 			esPublica: false
 		}
+	},
+	{
+		path: '/login',
+		name: 'login',
+		component: LoginView
 	},
 	{
 		path: '/actulizarParcial',
@@ -35,8 +41,7 @@ const routes = [
 			requiereAutorizacion: true,
 			esPublica: false
 		}
-	},
-	{
+	}, {
 		path: '/borrar',
 		name: 'borrar',
 		component: BorrarView,
@@ -83,14 +88,23 @@ const routes = [
 const router = createRouter({history: createWebHashHistory(), routes})
 
 /*Configuracion del guardian de rutas*/
-router.beforeEach((to,from,next)=>{
-  if(to.meta.requiereAutorizacion){
-    console.log("Redirigiendo al Login")
-    /*Le envio a una página de login*/
-  } else{
-    console.log("Pase Libre")
-    next();
-    /*Le dejo que pase sin autenticación*/
-  }
+router.beforeEach((to, from, next) => {
+	if (to.meta.requiereAutorizacion) {
+		const estaAutenticado = localStorage.getItem("estaAutenticado");
+		const token = localStorage.getItem("token");
+
+		if (! estaAutenticado) {
+			console.log("Redirigiendo al Login");
+			next({name: 'login'})
+		} else {
+			next();
+		}
+
+		/*Le envio a una página de login*/
+	} else {
+		console.log("Pase Libre")
+		next();
+		/*Le dejo que pase sin autenticación*/
+	}
 })
 export default router
